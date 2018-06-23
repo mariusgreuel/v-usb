@@ -462,6 +462,9 @@ extern volatile schar   usbRxLen;
 #ifndef USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER
 #define USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER    0
 #endif
+#ifndef USB_CFG_DESCR_PROPS_STRING_OS_STRING
+#define USB_CFG_DESCR_PROPS_STRING_OS_STRING        0
+#endif
 #ifndef USB_CFG_DESCR_PROPS_HID
 #define USB_CFG_DESCR_PROPS_HID                     0
 #endif
@@ -523,6 +526,12 @@ extern
 PROGMEM const
 #endif
 int usbDescriptorStringSerialNumber[];
+
+extern
+#if !(USB_CFG_DESCR_PROPS_STRING_OS_STRING & USB_PROP_IS_RAM)
+PROGMEM const
+#endif
+int usbDescriptorStringOsString[];
 
 #endif /* __ASSEMBLER__ */
 
