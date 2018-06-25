@@ -271,7 +271,7 @@ section at the end of this file).
  */
 /*#define USB_CFG_OS_STRING 'M', 'S', 'F', 'T', '1', '0', '0', GET_MS_DESCRIPTOR */
 /*#define USB_CFG_OS_STRING_LEN 8 */
-#define GET_MS_DESCRIPTOR 0x7f /* command for requesting the OS feature descriptor */
+/*#define GET_MS_DESCRIPTOR 0x7f */ /* command for requesting the OS feature descriptor */
  /* OS String Descriptor for Windows WinUSB driver.
  */
 #define USB_CFG_DEVICE_CLASS        0xff    /* set to 0 if deferred to interface */

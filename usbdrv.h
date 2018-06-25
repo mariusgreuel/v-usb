@@ -10,6 +10,10 @@
 #ifndef __usbdrv_h_included__
 #define __usbdrv_h_included__
 
+#ifndef __ASSEMBLER__
+#include <stdint.h>
+#endif
+
 /*
 Hardware Prerequisites:
 =======================
@@ -712,6 +716,26 @@ typedef struct usbRequest{
     usbWord_t   wLength;
 }usbRequest_t;
 /* This structure matches the 8 byte setup request */
+
+typedef struct
+{
+    uint32_t dwLength;
+    uint16_t bcdVersion;
+    uint16_t wIndex;
+    uint8_t bCount;
+    uint8_t reserved[7];
+} usbExtCompatHeader_t;
+
+typedef struct
+{
+    usbExtCompatHeader_t header;
+    uint8_t bFirstInterfaceNumber;
+    uint8_t reserved1;
+    char compatibleID[8];
+    char subCompatibleID[8];
+    uint8_t reserved2[6];
+} usbExtCompatDescriptor_t;
+
 #endif
 
 /* bmRequestType field in USB setup:
